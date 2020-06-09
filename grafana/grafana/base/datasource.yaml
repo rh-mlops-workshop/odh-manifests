@@ -5,10 +5,10 @@ metadata:
 spec:
   name: odh-prometheus.yaml
   datasources:
-    - name: opendatahub
+    - name: Prometheus
       type: prometheus
       access: proxy
-      url: http://prometheus-operated:9090
+      url: http://prometheus-operated.labs-prometheus:9090
       isDefault: true
       version: 1
       editable: true
