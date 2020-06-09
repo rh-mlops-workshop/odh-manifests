@@ -4694,4 +4694,8 @@ spec:
       "title": "Prediction Analytics",
       "uid": "U1cSDzyZz",
       "version": 1
-    }
+    }    
+  name: odh-dashboard.json
+  plugins:
+    - name: grafana-piechart-panel
+      version: 1.5.0
