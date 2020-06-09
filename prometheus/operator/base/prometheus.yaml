@@ -13,3 +13,6 @@ spec:
       matchLabels:
         team: opendatahub
   ruleSelector: {}
+  podMonitorNamespaceSelector: {}
+  podMonitorSelector: {}
+  serviceMonitorNamespaceSelector: {}

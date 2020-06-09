@@ -4,9 +4,9 @@ metadata:
   name: grafana-operator
   namespace: opendatahub
 spec:
-  channel: alpha
+  channel: stable
   installPlanApproval: Automatic
   name: grafana-operator
-  source: community-operators
+  source: grafana-operator
   sourceNamespace: openshift-marketplace
-  startingCSV: grafana-operator.v2.0.0
+  startingCSV: grafana-operator.v3.2.0
