@@ -4,7 +4,7 @@ metadata:
   name: grafana-operator
   namespace: opendatahub
 spec:
-  channel: stable
+  channel: alpha
   installPlanApproval: Automatic
   name: grafana-operator
   source: grafana-operator

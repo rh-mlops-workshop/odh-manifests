@@ -4,7 +4,7 @@ metadata:
   name: prometheus-operator
   namespace: opendatahub
 spec:
-  channel: stable
+  channel: beta
   installPlanApproval: Automatic
   name: prometheus-operator
   source: prometheus-operator
