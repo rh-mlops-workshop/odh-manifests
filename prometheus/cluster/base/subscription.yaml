@@ -6,7 +6,7 @@ metadata:
 spec:
   channel: beta
   installPlanApproval: Automatic
-  name: prometheus-operator
+  name: prometheus
   source: prometheus-operator
   sourceNamespace: openshift-marketplace
   startingCSV: prometheusoperator.0.37.0
