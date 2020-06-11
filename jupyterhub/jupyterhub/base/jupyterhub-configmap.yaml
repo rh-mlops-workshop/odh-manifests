@@ -5,7 +5,23 @@ metadata:
     app: jupyterhub
   name: jupyterhub-cfg
 data:
-  jupyterhub_config.py: ""
+  jupyterhub_config.py: |
+    from kubernetes.client import V1EnvFromSource, V1SecretEnvSource, V1ConfigMapEnvSource
+
+    def apply_pod_profile(spawner, pod):
+      spawner.single_user_profiles.load_profiles(username=spawner.user.name)
+      profile = spawner.single_user_profiles.get_merged_profile(spawner.image_spec, user=spawner.user.name, size=spawner.deployment_size)
+      pod = SingleuserProfiles.apply_pod_profile(spawner, pod, profile)
+
+      for c in pod.spec.containers:
+        c.env_from = c.env_from if c.env_from else [] 
+
+        env_from_src1 = V1EnvFromSource(secret_ref=V1SecretEnvSource('{}-mlflow-obc'.format(spawner.user.name), optional=True))
+        env_from_src2 = V1EnvFromSource(config_map_ref=V1ConfigMapEnvSource('{}-mlflow-obc'.format(spawner.user.name), optional=True))        
+        c.env_from.extend([env_from_src1, env_from_src2])
+      return pod
+
+    c.OpenShiftSpawner.modify_pod_hook = apply_pod_profile
   jupyterhub_admins: ""
   gpu_mode: ""
   singleuser_pvc_size: 2Gi
