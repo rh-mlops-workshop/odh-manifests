@@ -18,7 +18,9 @@ data:
 
         env_from_src1 = V1EnvFromSource(secret_ref=V1SecretEnvSource('{}-mlflow-obc'.format(spawner.user.name), optional=True))
         env_from_src2 = V1EnvFromSource(config_map_ref=V1ConfigMapEnvSource('{}-mlflow-obc'.format(spawner.user.name), optional=True))        
-        c.env_from.extend([env_from_src1, env_from_src2])
+        env_from_src3 = V1EnvFromSource(config_map_ref=V1ConfigMapEnvSource('{}-mlflow-cm'.format(spawner.user.name), optional=True))  
+        
+        c.env_from.extend([env_from_src1, env_from_src2, env_from_src3])
       return pod
 
     c.OpenShiftSpawner.modify_pod_hook = apply_pod_profile
