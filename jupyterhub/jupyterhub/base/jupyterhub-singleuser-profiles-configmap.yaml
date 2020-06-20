@@ -6,9 +6,6 @@ data:
   jupyterhub-singleuser-profiles.yaml: |
       profiles:
       - name: globals
-        env:
-          - name: S3_ENDPOINT_URL
-            value: $(s3_endpoint_url)
         resources:
           requests:
             memory: 1Gi
