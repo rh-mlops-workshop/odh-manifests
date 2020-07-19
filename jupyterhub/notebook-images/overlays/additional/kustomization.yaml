@@ -3,7 +3,7 @@ kind: Kustomization
 bases:
 - ../../base
 resources:
-- minimal-notebook-imagestream.yaml
+#- minimal-notebook-imagestream.yaml
 - mlops-notebook-imagestream.yaml
 # - scipy-notebook-imagestream.yaml
 # - tensorflow-notebook-imagestream.yaml
